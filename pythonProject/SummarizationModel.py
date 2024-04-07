@@ -1,7 +1,7 @@
 import torch
 
 
-class Model:
+class SummarizationModel:
     def __init__(self, tokenizer, model):
         self.tokenizer = tokenizer
         self.model = model

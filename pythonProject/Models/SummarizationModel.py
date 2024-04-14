@@ -1,10 +1,11 @@
 import torch
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 
 class SummarizationModel:
-    def __init__(self, tokenizer, model):
-        self.tokenizer = tokenizer
-        self.model = model
+    def __init__(self):
+        self.tokenizer = AutoTokenizer.from_pretrained("facebook/bart-large-cnn")
+        self.model = AutoModelForSeq2SeqLM.from_pretrained("facebook/bart-large-cnn")
 
     def summerize(self, text):
         inputs_no_trunc = self.tokenizer(text, max_length=None, return_tensors='pt', truncation=False)

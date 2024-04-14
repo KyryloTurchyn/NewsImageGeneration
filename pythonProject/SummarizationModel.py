@@ -6,11 +6,12 @@ class SummarizationModel:
         self.tokenizer = tokenizer
         self.model = model
 
-    def summerize(self, text, max_length=100) -> str:
+    def summerize(self, text):
         inputs_no_trunc = self.tokenizer(text, max_length=None, return_tensors='pt', truncation=False)
 
         chunk_start = 0
-        chunk_end = self.tokenizer.model_max_length  # == 1024 for Bart
+        chunk_end = 1024
+        #chunk_end = self.tokenizer.model_max_length  # == 1024 for Bart
         inputs_batch_lst = []
         space_token_id = self.tokenizer.encode(' ', add_special_tokens=False)[0]
 
@@ -22,13 +23,13 @@ class SummarizationModel:
             except ValueError:
                 pass
 
-            inputs_batch = inputs_no_trunc['input_ids'][0][chunk_start:chunk_end]
+            inputs_batch = inputs_no_trunc['input_ids'][0][chunk_start:chunk_end]  # get batch of n tokens
             inputs_batch = torch.unsqueeze(inputs_batch, 0)
             inputs_batch_lst.append(inputs_batch)
             chunk_start = chunk_end + 1
             chunk_end = min(chunk_start + self.tokenizer.model_max_length, len(inputs_no_trunc['input_ids'][0]))
 
-        summary_ids_lst = [self.model.generate(inputs, num_beams=4, max_length=max_length, early_stopping=True) for inputs in
+        summary_ids_lst = [self.model.generate(inputs, num_beams=4, max_length=1024, early_stopping=True) for inputs in
                            inputs_batch_lst]
 
         summary_batch_lst = []
@@ -37,5 +38,4 @@ class SummarizationModel:
                              summary_id]
             summary_batch_lst.append(summary_batch[0])
         summary_all = '\n'.join(summary_batch_lst)
-
         return summary_all

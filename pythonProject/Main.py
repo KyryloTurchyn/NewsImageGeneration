@@ -1,29 +1,28 @@
+import warnings
+warnings.filterwarnings("ignore")
+
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 from ParserClass import Parser
 from SummarizationModel import SummarizationModel
 from StableDiffusionModel import StableDiffusionModel
+from PromptModel import *
 
 if __name__ == '__main__':
-    text_from_url = Parser.parse("https://www.washingtonpost.com/politics/2024/04/06/trump-fundraising-dinner/")
+    url = "https://edition.cnn.com/2024/04/05/tech/meta-nonprofit-newspaper-independent-journalist-alleged-censorship/index.html"
+
+    text_from_url = Parser.parse(url)
 
     tokenizer = AutoTokenizer.from_pretrained("facebook/bart-large-cnn")
-    model_type = AutoModelForSeq2SeqLM.from_pretrained("facebook/bart-large-cnn")
-    summarizer_model = SummarizationModel(tokenizer, model_type)
-    summary = summarizer_model.summerize(text_from_url, 100)
+    model = AutoModelForSeq2SeqLM.from_pretrained("facebook/bart-large-cnn")
+    summarizer_model = SummarizationModel(tokenizer, model)
+    summary = summarizer_model.summerize(text_from_url)
+    print(summary)
+    prompt = predict_beta(summary + "4k, photorealistic")
 
     diffusion_model = StableDiffusionModel(
         model_name="stabilityai/stable-diffusion-xl-base-1.0",
         repo_name="ByteDance/SDXL-Lightning",
-        checkpoint_name="sdxl_lightning_8step_unet.safetensors"
-    )
-    prompt = "Enter your prompt here"
-    diffusion_model.generate_image(prompt)
+        checkpoint_name="sdxl_lightning_8step_unet.safetensors")
 
-"""
-classes for text extracting and summarizing from sites
-site - class
-https://www.theguardian.com/ - dcr-4cudl2
-https://www.washingtonpost.com - wpds-c-cYdRxM wpds-c-cYdRxM-iPJLV-css overrideStyles font-copy
-https://edition.cnn.com/ - paragraph inline-placeholder
-"""
+    diffusion_model.generate_image(prompt)

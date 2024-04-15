@@ -22,5 +22,6 @@ class StableDiffusionModel:
 
     def generate_image(self, prompt: str):
         image = self.pipe(prompt, num_inference_steps=8, guidance_scale=0, ).images[0]
-        image.save("output.png")
+        image.save("static/output.png")
+        print(123)
         return image

@@ -8,7 +8,7 @@ class PromptModel:
         self.api_url = "https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-beta"
         self.headers = {"Authorization": f"Bearer {api_token}"}
         self.system_prompt = ("your job is to generate detailed prompts that start with generate the abstract "
-                              "preview-photo which describe summary of journalistic article, for image generation models"
+                              "photo in 4k which describe summary of journalistic article, for image generation models"
                               "based on user summary. Make prompt which can clearly describe what happened in summary. "
                               "Be descriptive and specific, but also make sure your prompts are clear and concise.")
 

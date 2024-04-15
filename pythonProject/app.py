@@ -2,11 +2,10 @@ import warnings
 warnings.filterwarnings("ignore")
 
 from flask import Flask, render_template, request
-
 from logic import logic_function
 
-
 app = Flask(__name__)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():

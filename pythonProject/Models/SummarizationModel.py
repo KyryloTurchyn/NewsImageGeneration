@@ -8,6 +8,19 @@ class SummarizationModel:
         self.model = AutoModelForSeq2SeqLM.from_pretrained("facebook/bart-large-cnn")
 
     def summerize(self, text):
+        """
+        Summarizes the input text into a shorter form using the tokenizer and model.
+
+        This method handles text input, tokenizes the input without truncation, and processes it in chunks.
+        For each chunk, it finds a suitable end index that doesn't break a word. Each chunk is then fed to the model
+        to generate a summary. All summaries are concatenated to form the final summarized text.
+
+        Parameters:
+        text (str): The text to be summarized.
+
+        Returns:
+        str: The summarized text as a single string.
+        """
         inputs_no_trunc = self.tokenizer(text, max_length=None, return_tensors='pt', truncation=False)
 
         chunk_start = 0

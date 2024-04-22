@@ -1,5 +1,6 @@
-torch
+torch==2.2.2
 LxmlSoup
-transformers
-diffusers
-flask
+transformers==4.40.0
+diffusers==0.27.2
+flask==2.2.2
+werkzeug==2.2.3

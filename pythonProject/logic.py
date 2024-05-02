@@ -22,7 +22,7 @@ def logic_function(url: str):
     summarizer_model = SummarizationModel()
     summary = summarizer_model.summerize(text_from_url)
 
-    hf_api = PromptModel("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")
+    hf_api = PromptModel("HF_TOKEN")
     prompt = hf_api.generate_prompt(summary)
 
     diffusion_model = StableDiffusionModel(

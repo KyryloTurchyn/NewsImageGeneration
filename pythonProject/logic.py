@@ -22,7 +22,7 @@ def logic_function(url: str):
     summarizer_model = SummarizationModel()
     summary = summarizer_model.summerize(text_from_url)
 
-    hf_api = PromptModel("HF_TOKEN")
+    hf_api = PromptModel("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")
     prompt = hf_api.generate_prompt(summary)
 
     diffusion_model = StableDiffusionModel(
@@ -30,4 +30,5 @@ def logic_function(url: str):
         repo_name="ByteDance/SDXL-Lightning",
         checkpoint_name="sdxl_lightning_8step_unet.safetensors")
 
+    print("Image generation starts")
     diffusion_model.generate_image(prompt)

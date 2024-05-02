@@ -44,6 +44,17 @@ pythonProject/
 4) **Image Generation** - the image is generated on the basis of the existing promt, which is specially generated for the preview photo. 
 ## Examples of work
 [Trump in ‘full sprint’ to close Biden’s money lead as legal bills mount](https://www.washingtonpost.com/politics/2024/04/06/trump-fundraising-dinner/)
+
+![trump 1](https://github.com/KyryloTurchyn/NewsImageGeneration/assets/64077721/396689ea-1aa5-425e-b1dc-af9ab63a94df)
+
+
 [Irish moonshine and the village that declared itself an outlaw republic](https://edition.cnn.com/travel/urris-donegal-moonshine-poitin-outlaw-republic/index.html)
-[Sea of Thieves on PlayStation 5 review – you’ll laugh, you’ll sail, you’ll drink grog until you’re sick](https://www.theguardian.com/games/2024/may/02/sea-of-thieves-on-playstation-5-review-youll-laugh-youll-sail-youll-drink-grog-until-youre-sick)
+
+![ireland 1](https://github.com/KyryloTurchyn/NewsImageGeneration/assets/64077721/89559a45-1dc0-402d-979e-e57a30de41b3)
+
+
+[Original cover art for ‘Harry Potter and the Philosopher’s Stone’ expected to set auction record](https://www.theguardian.com/music/article/2024/may/02/yunchan-lim-chopin-etudes-op-10-op-25-album-review)
+![harry 1](https://github.com/KyryloTurchyn/NewsImageGeneration/assets/64077721/1b1df3d5-0ecb-41d0-812f-5315bbce976c)
+
 [Who was Alexei Navalny, Russian opposition leader and Putin critic?](https://www.washingtonpost.com/world/2024/02/16/alexei-navalny-death-what-to-know/)
+![lexa 1](https://github.com/KyryloTurchyn/NewsImageGeneration/assets/64077721/9d63b8ec-2656-4906-849e-7e4529f37f3d)

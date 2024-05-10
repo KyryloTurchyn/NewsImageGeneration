@@ -12,7 +12,7 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 After that, you will need to go to the directory and run app.py
 ```
 cd pythonProject
-python.py
+python app.py
 ```
 ## Structure of the project
 ```

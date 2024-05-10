@@ -1,5 +1,5 @@
 ## Overview
-This programme allows to get preview images for journalistic articles from "WashingtonPost", "CNN" or "The Guardian" websites with the use of the Facebook [BART](https://huggingface.co/facebook/bart-large-cnn) text generation model, the [zephyr-7b-beta](https://huggingface.co/HuggingFaceH4/zephyr-7b-beta) promt generation model and the 8-steps [SDXL-Lightning](https://huggingface.co/ByteDance/SDXL-Lightning) stackable diffusion model.
+This programme allows to get preview images for journalistic articles from "WashingtonPost", "CNN" or "The Guardian" websites with the use of the Facebook [BART](https://huggingface.co/facebook/bart-large-cnn) text generation model, the [zephyr-7b-beta](https://huggingface.co/HuggingFaceH4/zephyr-7b-beta) promt generation model and the 8-steps [SDXL-Lightning](https://huggingface.co/ByteDance/SDXL-Lightning) stable diffusion model.
 ## Instalation
 ```
 git clone https://github.com/KyryloTurchyn/NewsImageGeneration
